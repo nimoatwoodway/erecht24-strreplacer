@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+>><html style="height:100%;">
+  <head>
+  <meta charset="UTF-8">
+  <title>Title of the document</title>
+>>  <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+    <script>
+      $( document ).ready(function() {
+        var replaces = {
+          'Angaben gemäß § 5 TMG:' : 'Angaben gemäß DSGVO, DSG 2018, TKG 2003.',
+          'Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />' :  'Umsatzsteuer-Identifikationsnummer:',
+          'gemäß § 7 Abs.1 TMG ' : '',
+          'Nach §§ 8 bis 10 TMG sind wir' : 'Wir sind',
+        }
+        $('button').on('click', function() {
+  
+          var text = $('textarea').val();
+  
+          $.each(replaces, function(index, value) {
+            text = text.replace(index, value);
+          });
+  
+          $('textarea').val(text);
+        });
+      });
+  
+    </script>
+  </head>
+  
+  <body style="height:100%;">
+      <textarea style="width: 50%; height:600px;"></textarea><br>
+      <button id="replace">Replace</button>
+  </body>
+  
+  </html>
